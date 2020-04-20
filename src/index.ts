@@ -9,7 +9,7 @@ const app = express()
 const server = http.createServer(app)
 const io = socket(server)
 
-app.use(express.static('../public'))
+app.use(express.static(__dirname + '/../public'))
 
 import { gameAPI } from './gameAPI/index'
 

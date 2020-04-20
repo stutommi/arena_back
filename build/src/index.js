@@ -11,7 +11,7 @@ var config_1 = require("../config");
 var app = express_1.default();
 var server = http_1.default.createServer(app);
 var io = socket_1.default(server);
-app.use(express_1.default.static('../public'));
+app.use(express_1.default.static(__dirname + '/../public'));
 var index_1 = require("./gameAPI/index");
 io.on('connection', function (socket) {
     console.log("socket(" + socket.id + ") connected!");
