@@ -18,8 +18,8 @@ io.on('connection', (socket) => {
   gameAPI(socket);
 })
 
-// app.get('/', (_request, response) => {
-//   response.sendFile(path.join(__dirname, '../public/index.html'));
-// })
+app.get('/', (_request, response) => {
+  response.sendFile(path.join(__dirname, '../public/index.html'));
+})
 
 server.listen(PORT, () => console.log(`Server listening on port ${PORT}`))
