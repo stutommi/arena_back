@@ -1,5 +1,5 @@
 import { Session, Player } from '../classes'
-import { PlayerMovement, PlayerMainAction } from '../types'
+import { PlayerMovement, TargetLocation } from '../types'
 import socket from '../socket'
 import { SESSION_FPS } from './constants/sessionConstants'
 
@@ -12,7 +12,7 @@ export const gameAPI = (socket: SocketIO.Socket) => {
     console.log(`new player inda HOUUUUUSE | TOTAL(${session.getPlayerCount()})`)
 
     socket.on('playerMovement', (playerMovement: PlayerMovement) => { player.move(playerMovement) })
-    socket.on('playerMainAction', (playerMainAction: PlayerMainAction) => { player.mainAction(playerMainAction, session) })
+    socket.on('playerMainAction', (targetLocation: TargetLocation) => { player.mainAction(targetLocation, session) })
 
     socket.on('disconnect', () => {
         console.log(`socket(${socket.id}) disconnected!`)

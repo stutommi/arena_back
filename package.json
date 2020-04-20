@@ -7,8 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node-dev --respawn src/index.ts",
     "start": "node index.js",
-    "tsc": "tsc",
-    "lint": "eslint './src/**/*.ts'"
+    "build": "tsc",
+    "lint": "eslint './src/**/*.ts'",
+    "build:ui": "cd ../arena_front && npm run build && cp -r dist ../arena_back/build/public",
+    "deploy:full": "rm -rf build && npm run build && npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
+    "deploy": "git push heroku master"
   },
   "keywords": [
     "arena"
