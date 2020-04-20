@@ -1,1 +1,1 @@
-export const PORT: number = 5000
+export const PORT: string = process.env.PORT || '5000'
