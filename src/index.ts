@@ -18,7 +18,7 @@ io.on('connection', (socket) => {
   gameAPI(socket);
 })
 
-app.get('/*', (_request, response) => {
+app.get('/', (_request, response) => {
   response.sendFile(path.join(__dirname, '../public/index.html'));
 })
 

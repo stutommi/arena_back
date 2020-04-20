@@ -17,7 +17,7 @@ io.on('connection', function (socket) {
     console.log("socket(" + socket.id + ") connected!");
     index_1.gameAPI(socket);
 });
-app.get('/*', function (_request, response) {
+app.get('/', function (_request, response) {
     response.sendFile(path_1.default.join(__dirname, '../public/index.html'));
 });
 server.listen(config_1.PORT, function () { return console.log("Server listening on port " + config_1.PORT); });
