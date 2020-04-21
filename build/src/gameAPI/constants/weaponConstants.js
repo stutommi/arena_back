@@ -15,7 +15,7 @@ BULLET:
 var PISTOL_DAMAGE = 3;
 var PISTOL_FIRERATE = 300;
 var PISTOL_RANGE = 50;
-var PISTOL_BULLET = { damage: 5, speed: 5, form: 'circle', size: 2, color: '#778899' };
+var PISTOL_BULLET = { damage: 5, speed: 50, form: 'circle', size: 2, color: '#778899' };
 // RIFLE
 var RIFLE_DAMAGE = 5;
 var RIFLE_FIRERATE = 500;

@@ -16,7 +16,7 @@ BULLET:
 const PISTOL_DAMAGE: Damage = 3
 const PISTOL_FIRERATE: Firerate = 300
 const PISTOL_RANGE: Range = 50
-const PISTOL_BULLET: Bullet = { damage: 5 , speed: 5, form: 'circle', size: 2, color: '#778899' }
+const PISTOL_BULLET: Bullet = { damage: 5 , speed: 50, form: 'circle', size: 2, color: '#778899' }
 
 // RIFLE
 const RIFLE_DAMAGE: Damage = 5

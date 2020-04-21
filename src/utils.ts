@@ -25,7 +25,7 @@ export const handleGunfire = (player: Player, gun: Gun, startPos: Position, targ
     session.addMovingObject(newBullet)
 }
 
-export const moveObject = (curLocation: Position, incrementValues: PositionChange) => {
+export const moveObject = (curLocation: Position, incrementValues: PositionChange): void => {
     curLocation.x += incrementValues.xFrameIncrement
     curLocation.y += incrementValues.yFrameIncrement
 }
