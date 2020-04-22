@@ -15,12 +15,12 @@ BULLET:
 var PISTOL_DAMAGE = 3;
 var PISTOL_FIRERATE = 300;
 var PISTOL_RANGE = 50;
-var PISTOL_BULLET = { damage: 5, speed: 50, form: 'circle', size: 2, color: '#778899' };
+var PISTOL_BULLET = { damage: 5, speed: 50, form: 'circle', size: 2, color: '#778899', owner: "" };
 // RIFLE
 var RIFLE_DAMAGE = 5;
 var RIFLE_FIRERATE = 500;
 var RIFLE_RANGE = 100;
-var RIFLE_BULLET = { damage: 15, speed: 7, form: 'circle', size: 3, color: '#000' };
+var RIFLE_BULLET = { damage: 15, speed: 7, form: 'circle', size: 3, color: '#000', owner: "" }; // owner korjataan
 exports.getGun = function (type) {
     switch (type) {
         case 'pistol':

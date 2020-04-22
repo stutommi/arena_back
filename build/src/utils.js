@@ -11,6 +11,7 @@ exports.handleGunfire = function (player, gun, startPos, targetLocation, session
         type: {
             name: 'bullet',
             damage: player.getDamageMod() * gun.bullet.damage,
+            owner: player.getId(),
             size: gun.bullet.damage,
             speed: gun.bullet.speed,
             color: gun.bullet.color,
@@ -25,4 +26,21 @@ exports.handleGunfire = function (player, gun, startPos, targetLocation, session
 exports.moveObject = function (curLocation, incrementValues) {
     curLocation.x += incrementValues.xFrameIncrement;
     curLocation.y += incrementValues.yFrameIncrement;
+};
+exports.handleCollisions = function (players, movingObjects, session) {
+    var indexesToDelete = [];
+    players.forEach(function (p) { return movingObjects.forEach(function (mo, i) {
+        if (exports.objectsCollide(p, mo) && p.getId() !== mo.type.owner) {
+            p.setSize(p.getSize() + mo.type.size);
+            if (p.getSize() > 100)
+                p.setIsDead(true);
+            indexesToDelete.push(i);
+        }
+    }); });
+    session.removeManyMovingObjects(indexesToDelete);
+};
+exports.objectsCollide = function (p, mo) {
+    var distanceBetweenObjects = (p.getPosition().x - mo.currentLocation.x) * (p.getPosition().x - mo.currentLocation.x) +
+        (p.getPosition().y - mo.currentLocation.y) * (p.getPosition().y - mo.currentLocation.y);
+    return distanceBetweenObjects < (p.getSize() + mo.type.size) * (p.getSize() + mo.type.size);
 };

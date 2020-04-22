@@ -5,7 +5,7 @@ var playerConstants_1 = require("../gameAPI/constants/playerConstants");
 var weaponConstants_1 = require("../gameAPI/constants/weaponConstants");
 var utils_1 = require("../utils");
 var Player = /** @class */ (function () {
-    function Player(id, position, health, isDead, speedMod, damageMod, invulnurable, weapon) {
+    function Player(id, position, health, isDead, speedMod, damageMod, invulnurable, weapon, size) {
         if (position === void 0) { position = { x: 100, y: 100 }; }
         if (health === void 0) { health = 100; }
         if (isDead === void 0) { isDead = false; }
@@ -13,6 +13,7 @@ var Player = /** @class */ (function () {
         if (damageMod === void 0) { damageMod = 1; }
         if (invulnurable === void 0) { invulnurable = false; }
         if (weapon === void 0) { weapon = weaponConstants_1.getGun('pistol'); }
+        if (size === void 0) { size = 10; }
         this.id = id;
         this.position = position;
         this.health = health;
@@ -22,6 +23,7 @@ var Player = /** @class */ (function () {
         this.damageMod = damageMod;
         this.invulnurable = invulnurable;
         this.weapon = weapon;
+        this.size = size;
     }
     Player.prototype.getId = function () { return this.id; };
     Player.prototype.setId = function (newId) { this.id = newId; };
@@ -49,6 +51,10 @@ var Player = /** @class */ (function () {
     Player.prototype.getInvulnurable = function () { return this.invulnurable; };
     Player.prototype.setInvulnurable = function (invulnurable) {
         this.invulnurable = invulnurable;
+    };
+    Player.prototype.getSize = function () { return this.size; };
+    Player.prototype.setSize = function (newSize) {
+        this.size = newSize;
     };
     Player.prototype.move = function (pv) {
         if ((pv.up && !pv.down) || (pv.down && !pv.up)) {

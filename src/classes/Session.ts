@@ -1,6 +1,6 @@
 import Player from './Player'
 import { Position, PlayerId, MovingObject } from '../types'
-import { moveObject } from '../utils'
+import { moveObject, handleCollisions } from '../utils'
 
 
 class Session {
@@ -38,6 +38,16 @@ class Session {
                 moveObject(mv.currentLocation, mv.positionChange)
             }
         })
+        handleCollisions(this.players, this.movingObjects, this)
+    }
+
+    removeManyMovingObjects(idArr: number[]): void {
+        this.movingObjects = this.movingObjects.filter((_, i) => !idArr.includes(i))
+    }
+
+    clearSession(): void {
+        this.players = []
+        this.movingObjects = []
     }
 }
 

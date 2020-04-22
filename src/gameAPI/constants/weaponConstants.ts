@@ -16,13 +16,13 @@ BULLET:
 const PISTOL_DAMAGE: Damage = 3
 const PISTOL_FIRERATE: Firerate = 300
 const PISTOL_RANGE: Range = 50
-const PISTOL_BULLET: Bullet = { damage: 5 , speed: 50, form: 'circle', size: 2, color: '#778899' }
+const PISTOL_BULLET: Bullet = { damage: 5 , speed: 50, form: 'circle', size: 2, color: '#778899', owner: ""}
 
 // RIFLE
 const RIFLE_DAMAGE: Damage = 5
 const RIFLE_FIRERATE: Firerate = 500
 const RIFLE_RANGE: Range = 100
-const RIFLE_BULLET: Bullet = { damage: 15, speed: 7, form: 'circle', size: 3, color: '#000' }
+const RIFLE_BULLET: Bullet = { damage: 15, speed: 7, form: 'circle', size: 3, color: '#000', owner: ""} // owner korjataan
 
 export const getGun = (type: GunType): Gun => {
     switch (type) {

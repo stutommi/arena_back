@@ -3,7 +3,7 @@ import { PlayerMovement, TargetLocation } from '../types'
 import socket from '../socket'
 import { SESSION_FPS } from './constants/sessionConstants'
 
-const session = new Session()
+export const session = new Session()
 const io = socket()
 
 export const gameAPI = (socket: SocketIO.Socket) => {
@@ -13,6 +13,7 @@ export const gameAPI = (socket: SocketIO.Socket) => {
 
     socket.on('playerMovement', (playerMovement: PlayerMovement) => { player.move(playerMovement) })
     socket.on('playerMainAction', (targetLocation: TargetLocation) => { player.mainAction(targetLocation, session) })
+    socket.on('sessionReset', () => { session.clearSession() })
 
     socket.on('disconnect', () => {
         console.log(`socket(${socket.id}) disconnected!`)

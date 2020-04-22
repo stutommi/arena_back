@@ -8,6 +8,7 @@ import {
     PlayerSpeedMod,
     PlayerDamageMod,
     PlayerInvulnurable,
+    PlayerSize,
     TargetLocation
 } from '../types'
 import { Weapon, Session, Gun } from './'
@@ -19,11 +20,12 @@ class Player {
     private id: PlayerId
     private position: PlayerPosition
     private health: PlayerHealth
-    private isDead: boolean
-    private speedMod: number
-    private damageMod: number
-    private invulnurable: boolean
+    private isDead: PlayerIsDead
+    private speedMod: PlayerSpeedMod
+    private damageMod: PlayerDamageMod
+    private invulnurable: PlayerInvulnurable
     private weapon: Weapon
+    private size: PlayerSize
 
     constructor(
         id: PlayerId,
@@ -33,7 +35,8 @@ class Player {
         speedMod: PlayerSpeedMod = 1,
         damageMod: PlayerDamageMod = 1,
         invulnurable: PlayerInvulnurable = false,
-        weapon: Weapon = getGun('pistol')
+        weapon: Weapon = getGun('pistol'),
+        size: PlayerSize = 10
     ) {
         this.id = id
         this.position = position
@@ -44,6 +47,7 @@ class Player {
         this.damageMod = damageMod
         this.invulnurable = invulnurable
         this.weapon = weapon
+        this.size = size
     }
 
     getId(): PlayerId { return this.id }
@@ -80,6 +84,11 @@ class Player {
     getInvulnurable(): PlayerInvulnurable { return this.invulnurable }
     setInvulnurable(invulnurable: PlayerInvulnurable): void {
         this.invulnurable = invulnurable
+    }
+
+    getSize(): PlayerSize { return this.size }
+    setSize(newSize: PlayerSize): void {
+        this.size = newSize
     }
 
     move(pv: PlayerMovement): void {

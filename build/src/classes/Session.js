@@ -28,6 +28,14 @@ var Session = /** @class */ (function () {
                 utils_1.moveObject(mv.currentLocation, mv.positionChange);
             }
         });
+        utils_1.handleCollisions(this.players, this.movingObjects, this);
+    };
+    Session.prototype.removeManyMovingObjects = function (idArr) {
+        this.movingObjects = this.movingObjects.filter(function (_, i) { return !idArr.includes(i); });
+    };
+    Session.prototype.clearSession = function () {
+        this.players = [];
+        this.movingObjects = [];
     };
     return Session;
 }());

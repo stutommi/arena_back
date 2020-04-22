@@ -28,6 +28,7 @@ export type PlayerIsDead = boolean
 export type PlayerSpeedMod = number
 export type PlayerDamageMod = number
 export type PlayerInvulnurable = boolean
+export type PlayerSize = number
 
 
 // Weapons
@@ -42,6 +43,7 @@ export type BulletSpeed = Speed
 export type BulletForm = 'circle' | 'rectangle' 
 export type BulletSize = number
 export type BulletColor = Color
+export type BulletOwner = string
 
 export interface Bullet {
     damage: Damage
@@ -49,6 +51,7 @@ export interface Bullet {
     form: BulletForm
     size: BulletSize
     color: Color
+    owner: BulletOwner 
 }
 
 // Moving object
